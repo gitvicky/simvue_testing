@@ -5,6 +5,7 @@
 *.out
 *.sh
 *.pth
+*.ini
 
 #Folders
 Models/
