@@ -1,0 +1,49 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  5.0                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : 5.0
+Exec   : simpleFoam -postProcess -func yPlus -latestTime -noFunctionObjects
+Date   : Oct 27 2022
+Time   : 21:28:08
+Host   : "cpu-e-915"
+PID    : 4000
+I/O    : uncollated
+Case   : /rds/project/iris_vol2/rds-ukaea-ap001/ir-gopa2/Code/Simtrack_Testing/OpenFOAM/laminar_steady
+nProcs : 1
+sigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create mesh for time = 300
+
+
+SIMPLE: convergence criteria
+    field p	 tolerance 1e-05
+    field U	 tolerance 1e-05
+
+Time = 300
+Reading field p
+
+Reading field U
+
+Reading/calculating face flux field phi
+
+Selecting incompressible transport model Newtonian
+Selecting turbulence model type laminar
+Selecting laminar stress model Stokes
+No MRF models present
+
+yPlus yPlus write:
+    writing object yPlus
+    patch cylinder y+ : min = 0.03950168, max = 0.39053324, average = 0.21906785
+
+
+End
+

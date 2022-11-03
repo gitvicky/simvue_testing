@@ -1,0 +1,48 @@
+#How to run me:
+
+
+
+#To clean the directory, this is optional
+
+foamCleanTutorials
+
+
+
+#To generate the mesh and check mesh quality
+
+blockMesh  
+
+checkMesh
+
+
+
+#Renumbers the cell list in order to reduce the bandwidth
+
+renumberMesh -overwrite -noFunctionObjects
+
+
+
+#To run in serial
+
+pimpleFoam | tee log
+
+
+
+#Visualization
+
+paraFoam
+
+
+
+
+
+#NOTE0:
+
+#If you are using TCSH shell use the following redirector:
+#command | tee log
+
+
+
+
+
+

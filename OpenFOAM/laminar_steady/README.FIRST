@@ -1,0 +1,54 @@
+#How to run me:
+
+
+
+#To clean the directory, this is optional
+
+foamCleanTutorials
+
+rm -rf 0 > /dev/null 2>&1
+
+cp -r 0_org 0
+
+
+
+#To generate the mesh and check mesh quality
+
+blockMesh  
+
+checkMesh
+
+
+
+#Renumbers the cell list in order to reduce the bandwidth
+
+renumberMesh -dict system/renumberMeshDict  -overwrite -noFunctionObjects
+
+
+
+# If you have pyfoam
+
+pyFoamPlotRunner.py --with-all simpleFoam 
+
+
+
+# If you do not have pyfoam
+
+simpleFoam | tee log.simpleFoam
+
+
+
+#To compute yPlus (if turbulence on)
+
+simpleFoam -postProcess -func yPlus -latestTime -noFunctionObjects
+
+
+
+#Visualization
+
+paraFoam
+
+
+
+
+

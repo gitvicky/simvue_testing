@@ -1,0 +1,74 @@
+#How to run me:
+
+
+
+#To clean the directory, this is optional
+
+foamCleanTutorials
+
+rm -rf 0 > /dev/null 2>&1
+
+cp -r 0_org 0
+
+
+
+#To generate the mesh 
+
+blockMesh  
+
+ 
+
+#To refine the mesh close to the walls (cylinder patch) 
+
+refineWallLayer -overwrite "(cylinder)" 0.5
+
+refineWallLayer -overwrite "(cylinder)" 0.4
+
+refineWallLayer -overwrite "(cylinder)" 0.3
+
+refineWallLayer -overwrite "(cylinder)" 0.2
+
+refineWallLayer -overwrite "(cylinder)" 0.1
+
+
+
+#To check mesh 
+
+checkMesh
+
+
+
+#Renumbers the cell list in order to reduce the bandwidth
+
+renumberMesh -dict system/renumberMeshDict  -overwrite -noFunctionObjects
+
+
+
+#To run in serial
+
+pimpleFoam > log | tail -f log
+
+
+
+#To compute yPlus
+
+pimpleFoam -postProcess -func yPlus -latestTime -noFunctionObjects
+
+
+
+#Visualization
+
+paraFoam
+
+
+
+
+
+
+#NOTE1:
+#If you want to refine the mesh layer close to the cylinder, use the utility refineWallLayer 
+
+
+
+
+

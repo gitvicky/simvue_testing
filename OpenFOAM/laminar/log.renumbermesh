@@ -1,0 +1,45 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  5.0                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : 5.0
+Exec   : renumberMesh -overwrite -noFunctionObjects
+Date   : Oct 14 2022
+Time   : 16:47:13
+Host   : "cpu-e-1004"
+PID    : 220728
+I/O    : uncollated
+Case   : /rds/project/iris_vol2/rds-ukaea-ap001/ir-gopa2/Code/Simtrack_Testing/OpenFOAM/laminar
+nProcs : 1
+sigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create mesh for time = 0
+
+Mesh size: 9200
+Before renumbering :
+    band           : 5041
+    profile        : 1317462
+
+Using default renumberMethod.
+
+Selecting renumberMethod CuthillMcKee
+
+Reading volScalarField p
+Reading volVectorField U
+
+After renumbering :
+    band           : 102
+    profile        : 663792
+
+Writing mesh to "constant"
+
+End
+

@@ -1,0 +1,14 @@
+*.npy
+*.npz
+*.pyc
+*.file
+*.out
+*.sh
+*.pth
+
+#Folders
+Models/
+Images/
+Outputs/
+Data/
+wandb/
